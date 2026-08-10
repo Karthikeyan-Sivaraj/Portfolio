@@ -1,0 +1,170 @@
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+.project-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  padding: 1px; /* gradient border thickness */
+  background: linear-gradient(160deg, var(--line-strong), transparent 40%, transparent 60%, rgba(192, 38, 211, .25));
+  transition: transform var(--dur-med) var(--ease), box-shadow var(--dur-med) var(--ease);
+  will-change: transform;
+}
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lift);
+}
+
+/* Featured card spans full width */
+.project-card.featured { grid-column: 1 / -1; }
+
+.card-inner {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: clamp(26px, 3.4vw, 40px);
+  border-radius: calc(var(--radius-lg) - 1px);
+  background:
+    radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(139, 92, 246, .14), transparent 65%),
+    linear-gradient(165deg, rgba(18, 12, 40, .92), rgba(9, 6, 18, .96));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+.project-card.featured .card-inner {
+  background:
+    radial-gradient(560px circle at var(--mx, 30%) var(--my, 0%), rgba(168, 85, 247, .18), transparent 65%),
+    linear-gradient(165deg, rgba(22, 14, 48, .94), rgba(9, 6, 18, .96));
+}
+
+/* Tags */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tag {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 5px 13px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--ink-faint);
+  background: rgba(139, 92, 246, .06);
+}
+.tag.hot {
+  color: #fff;
+  border-color: transparent;
+  background: var(--grad-brand);
+  box-shadow: 0 0 18px rgba(168, 85, 247, .45);
+}
+
+.card-title {
+  font-family: var(--display);
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--ink);
+}
+.project-card.featured .card-title {
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+}
+
+.card-desc {
+  color: var(--ink-dim);
+  font-size: var(--fs-small);
+  line-height: 1.75;
+  max-width: 62ch;
+}
+
+/* Metrics */
+.card-metrics {
+  display: flex;
+  gap: var(--space-xl);
+  padding-top: 6px;
+}
+.metric { display: flex; flex-direction: column; gap: 2px; }
+.mval {
+  font-family: var(--display);
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.mkey {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* Tech badges + links footer */
+.card-foot {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.card-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.card-tech span {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: .08em;
+  padding: 5px 12px;
+  border-radius: 8px;
+  color: var(--violet-soft);
+  background: rgba(139, 92, 246, .1);
+  border: 1px solid var(--line);
+}
+
+.card-links {
+  display: flex;
+  gap: 10px;
+}
+.card-links a {
+  font-family: var(--display);
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--violet-soft);
+  padding: 9px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: var(--glass);
+  transition: transform var(--dur-fast) var(--ease),
+              color var(--dur-fast) var(--ease),
+              border-color var(--dur-fast) var(--ease),
+              box-shadow var(--dur-fast) var(--ease);
+}
+.card-links a:hover {
+  transform: translateY(-2px);
+  color: #fff;
+  border-color: var(--violet-hi);
+  box-shadow: var(--glow-violet);
+}
+
+@media (max-width: 820px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .card-metrics { gap: var(--space-lg); }
+}

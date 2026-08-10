@@ -1,0 +1,68 @@
+:root {
+  /* Color: surfaces */
+  --bg-0:        #07050d;                 /* deepest — hero, projects */
+  --bg-1:        #0d0920;                 /* alternate panel — about, education */
+  --bg-2:        #120c28;                 /* raised surface */
+  --glass:       rgba(139, 92, 246, 0.05);
+  --glass-strong:rgba(139, 92, 246, 0.10);
+
+  /* Color: ink */
+  --ink:         #f4f2fb;                 /* soft white */
+  --ink-dim:     #b7b0cf;                 /* secondary text */
+  --ink-faint:   #7d75a0;                 /* labels, meta */
+
+  /* Color: violet system */
+  --violet:      #8b5cf6;
+  --violet-hi:   #a78bfa;
+  --violet-soft: #c4b5fd;
+  --fuchsia:     #c026d3;
+  --fuchsia-hi:  #e879f9;
+  --grad-brand:  linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c026d3 100%);
+  --grad-text:   linear-gradient(110deg, #c4b5fd 0%, #a78bfa 45%, #e879f9 100%);
+
+  /* Lines & borders */
+  --line:        rgba(167, 139, 250, 0.14);
+  --line-strong: rgba(167, 139, 250, 0.30);
+  --line-hair:   linear-gradient(90deg, transparent, rgba(167,139,250,.35), transparent);
+
+  /* Typography */
+  --display: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --sans:    'Manrope', 'Segoe UI', system-ui, sans-serif;
+  --mono:    'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+
+  /* Type scale */
+  --fs-hero:    clamp(2.75rem, 7.2vw, 5.5rem);
+  --fs-h2:      clamp(2rem, 4.2vw, 3.25rem);
+  --fs-h3:      clamp(1.2rem, 2vw, 1.5rem);
+  --fs-body:    1.0625rem;
+  --fs-small:   0.9375rem;
+  --fs-label:   0.75rem;
+
+  /* Spacing */
+  --space-xs:   4px;
+  --space-sm:   8px;
+  --space-md:   16px;
+  --space-lg:   24px;
+  --space-xl:   48px;
+  --space-2xl:  88px;
+  --space-3xl:  140px;
+
+  /* Layout */
+  --max-w:      1160px;
+  --nav-h:      68px;
+  --radius:     18px;
+  --radius-lg:  26px;
+
+  /* Motion */
+  --ease:       cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out:   cubic-bezier(0.0, 0.0, 0.2, 1.0);
+  --dur-fast:   0.18s;
+  --dur-med:    0.35s;
+  --dur-slow:   0.7s;
+
+  /* Elevation & glow */
+  --shadow-card:  0 8px 32px rgba(3, 1, 10, 0.55);
+  --shadow-lift:  0 22px 60px rgba(3, 1, 10, 0.65);
+  --glow-violet:  0 0 32px rgba(139, 92, 246, 0.35);
+  --glow-strong:  0 0 48px rgba(168, 85, 247, 0.5);
+}

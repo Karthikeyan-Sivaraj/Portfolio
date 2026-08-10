@@ -1,0 +1,158 @@
+#hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Video — same position & full-bleed treatment, refined layering */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+}
+
+/* Deep overlay tuned to the video's violet glow */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(90% 70% at 50% 45%, rgba(7, 5, 13, .18), rgba(7, 5, 13, .88) 95%),
+    linear-gradient(180deg, rgba(7, 5, 13, .55) 0%, rgba(7, 5, 13, .25) 40%, var(--bg-0) 100%);
+}
+
+/* Faint perspective grid catching the light */
+.hero-bg-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(167, 139, 250, .05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(167, 139, 250, .05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(70% 60% at 50% 50%, #000 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(70% 60% at 50% 50%, #000 30%, transparent 100%);
+}
+
+.hero-content {
+  position: relative;
+  max-width: 880px;
+  padding: 120px clamp(20px, 4vw, 40px) 80px;
+  text-align: center;
+}
+
+/* Eyebrow — glass pill with live dot */
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: rgba(13, 9, 32, .5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-family: var(--mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--violet-soft);
+  margin-bottom: var(--space-xl);
+  animation: hero-in .9s var(--ease) both;
+}
+.hero-eyebrow .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--fuchsia-hi);
+  box-shadow: 0 0 10px var(--fuchsia-hi);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1);   opacity: 1; }
+  50%       { transform: scale(1.35); opacity: .55; }
+}
+
+.hero-title {
+  font-family: var(--display);
+  font-size: var(--fs-hero);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  margin-bottom: var(--space-lg);
+  text-wrap: balance;
+  animation: hero-in .9s var(--ease) .12s both;
+  text-shadow: 0 2px 40px rgba(7, 5, 13, .7);
+}
+.hero-title em {
+  position: relative;
+  white-space: nowrap;
+}
+
+.hero-bio {
+  max-width: 620px;
+  margin: 0 auto var(--space-xl);
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--ink-dim);
+  animation: hero-in .9s var(--ease) .24s both;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+  animation: hero-in .9s var(--ease) .36s both;
+}
+
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Scroll hint */
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 34px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  animation: hero-in 1s var(--ease) .8s both;
+}
+.scroll-line {
+  width: 1px;
+  height: 46px;
+  background: linear-gradient(180deg, var(--violet-hi), transparent);
+  overflow: hidden;
+  position: relative;
+}
+.scroll-line::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: 0;
+  width: 100%; height: 50%;
+  background: #fff;
+  animation: scroll-drip 2.2s var(--ease) infinite;
+}
+@keyframes scroll-drip {
+  0%   { top: -50%; }
+  100% { top: 110%; }
+}

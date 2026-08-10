@@ -1,0 +1,111 @@
+.about-text { max-width: 900px; }
+
+.about-heading {
+  font-family: var(--display);
+  font-size: var(--fs-h2);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  margin-bottom: var(--space-xl);
+  text-wrap: balance;
+}
+
+.about-text > p {
+  max-width: 72ch;
+  color: var(--ink-dim);
+  margin-bottom: var(--space-lg);
+}
+.about-text > p b {
+  color: var(--violet-soft);
+  font-weight: 600;
+}
+
+.about-principles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin: var(--space-2xl) 0 var(--space-xl);
+}
+
+.principle {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 28px 26px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, var(--glass-strong), rgba(13, 9, 32, .35));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition: transform var(--dur-med) var(--ease),
+              border-color var(--dur-med) var(--ease),
+              box-shadow var(--dur-med) var(--ease);
+}
+.principle::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--grad-brand);
+  opacity: 0;
+  transition: opacity var(--dur-med) var(--ease);
+}
+.principle:hover {
+  transform: translateY(-6px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-lift), var(--glow-violet);
+}
+.principle:hover::before { opacity: 1; }
+
+.principle-num {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: .15em;
+  color: var(--fuchsia-hi);
+}
+
+.principle strong {
+  display: block;
+  font-family: var(--display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+
+.principle span:not(.principle-num) {
+  font-size: var(--fs-small);
+  line-height: 1.7;
+  color: var(--ink-dim);
+}
+
+.about-availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: var(--glass);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: .95rem;
+  color: var(--violet-soft);
+}
+.avail-dot {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 12px rgba(52, 211, 153, .8);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@media (max-width: 900px) {
+  .about-principles { grid-template-columns: 1fr; }
+}
